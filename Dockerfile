@@ -1,13 +1,12 @@
-FROM debian:sid
+FROM shadowsocks/shadowsocks-libev:latest
 
-RUN set -ex\
-    && add-apt-repository ppa:max-c-lv/shadowsocks-libev -y \
-    && apt update -y \
-    && apt upgrade -y \
-    && apt install -y wget unzip qrencode\
-    && apt install -y shadowsocks-libev\
-    && apt install -y nginx\
-    && apt autoremove -y
+USER root
+
+RUN set -x\
+    && apk update \
+    && apk upgrade \
+    && apk add wget unzip libqrencode \
+    && apk add nginx
 
 COPY conf/ /conf
 COPY entrypoint.sh /entrypoint.sh
