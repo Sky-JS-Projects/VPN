@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+USER root
+
 RUN set -ex\
     && apt update -y \
     && apt upgrade -y \
