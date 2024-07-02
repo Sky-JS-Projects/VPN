@@ -1,7 +1,6 @@
-FROM debian:sid
+FROM ubuntu:latest
 
 RUN set -ex\
-    && add-apt-repository ppa:max-c-lv/shadowsocks-libev -y \
     && apt update -y \
     && apt upgrade -y \
     && apt install -y wget unzip qrencode\
